@@ -19,12 +19,11 @@ export const cambiarImagenCarta = (indice: number) => {
 
 function flipCard(carta: number) {
   const contenedorCarta = document.getElementById(`${carta}`)
-
+ 
   if (contenedorCarta !== null && contenedorCarta !== undefined) {
-    contenedorCarta.classList.toggle('flipped')
-    setTimeout(() => {
-      contenedorCarta.classList.toggle('flipped')
-    }, 1000)
+      contenedorCarta.classList.add('flipped')
+     
+   
   }
 }
 
@@ -53,12 +52,11 @@ export const muestraNumeroDeIntentos = () => {
 }
 
 function unflipCards(cartaA: HTMLDivElement, cartaB: HTMLDivElement) {
- 
   
-  setTimeout(() => {
-    cartaA.classList.toggle('flipped')
-    cartaB.classList.toggle('flipped')
-  }, 1000)
+  
+    cartaA.classList.add('unflipped')
+    cartaB.classList.add('unflipped')
+
 }
 export const taparCartas = (indiceA: number, indiceB: number) => {
   if (tablero.estadoPartida === 'DosCartasLevantadas') {
