@@ -1,6 +1,7 @@
 import { botonIniciarPartida, cartasBarajadas  } from "./modelo";
-import {  handleClickIniciarPartida  } from "./ui";
-import {handleClickCartas   } from "./motor"
+import {  handleClickIniciarPartida, handleClickCartas  } from "./ui";
+
+
 
 botonIniciarPartida.addEventListener('click', handleClickIniciarPartida)
 
