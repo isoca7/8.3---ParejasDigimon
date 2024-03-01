@@ -1,6 +1,3 @@
-/*
-En el motor nos va a hacer falta un método para barajar cartas
-*/
 import {
   Tablero,
   tablero,
@@ -27,6 +24,15 @@ export const barajarCartas = (cartas: Carta[]): Carta[] => {
 /*
       Una carta se puede voltear si no está encontrada y no está ya volteada, o no hay dos cartas ya volteadas
     */
+
+
+export const asignarCartasVolteadas = (tablero: Tablero, indice: number) => {
+  if (tablero.estadoPartida === "CeroCartasLevantadas") {
+    voltearPrimeraCarta(indice);
+  } else if (tablero.estadoPartida === "UnaCartaLevantada") {
+    voltearSegundaCarta(indice);
+  }
+};
 function voltearPrimeraCarta(indice: number) {
   tablero.indiceCartaVolteadaA = indice;
   tablero.cartas[indice].estaVuelta = true;
@@ -37,14 +43,6 @@ function voltearSegundaCarta(indice: number) {
   tablero.cartas[indice].estaVuelta = true;
   tablero.estadoPartida = "DosCartasLevantadas";
 }
-
-export const asignarCartasVolteadas = (tablero: Tablero, indice: number) => {
-  if (tablero.estadoPartida === "CeroCartasLevantadas") {
-    voltearPrimeraCarta(indice);
-  } else if (tablero.estadoPartida === "UnaCartaLevantada") {
-    voltearSegundaCarta(indice);
-  }
-};
 
 export const sePuedeVoltearLaCarta = (tablero: Tablero, indice: number): boolean => {
   if (
@@ -100,9 +98,6 @@ export const parejaNoEncontrada = (
   setNumeroIntentos(numeroIntentos + 1);
 };
 
-/*
-      Esto lo podemos comprobar o bien utilizando every, o bien utilizando un contador (cartasEncontradas)
-    */
 export const esPartidaCompleta = (tablero: Tablero): boolean => {
   return tablero.cartas.every((carta) => carta.encontrada === true);
 };

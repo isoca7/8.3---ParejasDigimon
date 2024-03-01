@@ -9,7 +9,7 @@ botonIniciarPartida.addEventListener('click', handleClickIniciarPartida)
 const cargarJuego = () => {
   for (let i = 0; i <= cartasBarajadas.length; i++) {
     console.log(i);
-    const carta = document.getElementById(`${i}`) as HTMLDivElement;
+    const carta = document.getElementById(`${i}`);
     console.log(carta);
     if (carta !== null && carta !== undefined) {
       carta.addEventListener("click", () => {

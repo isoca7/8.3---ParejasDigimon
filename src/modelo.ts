@@ -1,6 +1,6 @@
 import { barajarCartas } from "./motor"
 
-export let numeroIntentos : number=0
+export let numeroIntentos : number = 0
 export const setNumeroIntentos = (valor : number) =>{
   numeroIntentos=valor
 }
